@@ -10,4 +10,4 @@ cd blog-test-task
 docker-compose up -d --build
 ```
 
-Swagger будет доступен по http://localhost:8000/api/docs
+Swagger будет доступен по http://localhost:8000/api/docs, чтобы воспользоваться API, используйте токен: supersecret

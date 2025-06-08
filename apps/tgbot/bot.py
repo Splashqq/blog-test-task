@@ -5,9 +5,9 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode, setup_dialogs
 
-from blog.settings import env
-from tgbot.dialogs import posts_dialog
-from tgbot.states import PostsStates
+from apps.tgbot.dialogs import posts_dialog
+from apps.tgbot.states import PostsStates
+from config.settings import env
 
 router = Router()
 

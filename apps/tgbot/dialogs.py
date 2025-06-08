@@ -2,9 +2,9 @@ from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.kbd import Back, ScrollingGroup, Select
 from aiogram_dialog.widgets.text import Const, Format
 
-from tgbot.getters import get_post_data, get_posts_data
-from tgbot.handlers import on_post_selected
-from tgbot.states import PostsStates
+from apps.tgbot.getters import get_post_data, get_posts_data
+from apps.tgbot.handlers import on_post_selected
+from apps.tgbot.states import PostsStates
 
 posts_dialog = Dialog(
     Window(

@@ -1,20 +1,13 @@
+import http
 from typing import List
 
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404
 from ninja import Router
 from ninja.errors import HttpError
-from ninja.security import HttpBearer
 
-from post.models import Post
-from post.schemas import PostIn, PostOut
-
-
-class GlobalAuth(HttpBearer):
-    def authenticate(self, request, token):
-        if token == "supersecret":
-            return token
-
+from apps.post.models import Post
+from apps.post.schemas import PostIn, PostOut
 
 router = Router()
 
@@ -39,10 +32,10 @@ def get_post(request, post_id: int):
     return post
 
 
-@router.post("/posts", response=PostOut)
+@router.post("/posts", response={201: PostOut})
 def create_post(request, payload: PostIn):
     post = Post.objects.create(**payload.dict())
-    return post
+    return http.HTTPStatus.CREATED, post
 
 
 @router.put("/posts/{post_id}", response=PostOut)

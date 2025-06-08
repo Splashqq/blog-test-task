@@ -3,13 +3,13 @@ from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
 
-from blog import settings
-from post.api import GlobalAuth
-from post.api import router as blog_router
+from apps.auth import GlobalAuth
+from apps.post.api import router as post_router
+from config import settings
 
 api = NinjaAPI(urls_namespace="Blog API", docs_url="/docs", auth=GlobalAuth())
 
-api.add_router("/blog/", blog_router)
+api.add_router("/", post_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

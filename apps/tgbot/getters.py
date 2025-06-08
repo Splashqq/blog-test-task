@@ -3,7 +3,7 @@ import logging
 from aiogram_dialog import DialogManager
 from asgiref.sync import sync_to_async
 
-from post.models import Post
+from apps.post.models import Post
 
 
 def get_all_posts():

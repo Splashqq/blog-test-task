@@ -2,7 +2,7 @@ import asyncio
 
 from django.core.management.base import BaseCommand
 
-from tgbot.bot import start_bot
+from apps.tgbot.bot import start_bot
 
 
 class Command(BaseCommand):
